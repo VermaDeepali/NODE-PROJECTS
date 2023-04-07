@@ -1,1 +1,12 @@
-// code related stjs
+var data = {
+  "links": [
+    { "remote_url": "http://localhost" },
+    { "file_url": "file://documents" },
+    { "remote_url": "https://blahblah.com" }
+  ],
+  "preview": "https://image",
+  "metadata": "This is a link collection"
+}
+var sel = ST.select(data, function(key, val) {
+  return /https?:/.test(val);
+})
