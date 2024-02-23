@@ -22,15 +22,21 @@ const getQuotes = async () => {
     // Get page data
     const quotes = await page.evaluate(() => {
         // Fetch the first element with class "quote"
-        const quote = document.querySelector(".quote");
+        // Get the displayed text and returns it
+        const quoteList = document.querySelectorAll(".quote");
 
-        // Fetch the sub-elements from the previously fetched quote element
-        // Get the displayed text and return it (`.innerText`)
-        const text = quote.querySelector(".text").innerText;
-        const author = quote.querySelector(".author").innerText;
+        // Convert the quoteList to an iterable array
+        // For each quote fetch the text and author
+        return Array.from(quoteList).map((quote) => {
+            // Fetch the sub-elements from the previously fetched quote element
+            // Get the displayed text and return it (`.innerText`)
+            const text = quote.querySelector(".text").innerText;
+            const author = quote.querySelector(".author").innerText;
 
-        return { text, author };
+            return { text, author };
+        });
     });
+
     // Display the quotes
     console.log(quotes);
 
