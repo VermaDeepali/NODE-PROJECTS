@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+build/
+
+# env
+.env
+.env.local
+
+# logs
+logs/
+*.log
+
+# coverage
+coverage/
+
+# mac
+.DS_Store
+
+# vscode
+.vscode/
+
+# idea
+.idea/
