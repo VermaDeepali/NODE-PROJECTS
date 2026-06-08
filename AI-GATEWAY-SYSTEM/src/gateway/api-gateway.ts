@@ -7,10 +7,24 @@ export class APIGateway {
     res: Response,
     next: NextFunction
   ) {
+    const start = Date.now();
+
     logger.info({
+      message: 'Incoming Request',
       method: req.method,
-      path: req.path,
-      ip: req.ip
+      path: req.originalUrl,
+      ip: req.ip,
+      body: req.body
+    });
+
+    res.on('finish', () => {
+      logger.info({
+        message: 'Request Completed',
+        method: req.method,
+        path: req.originalUrl,
+        statusCode: res.statusCode,
+        duration: `${Date.now() - start}ms`
+      });
     });
 
     next();
