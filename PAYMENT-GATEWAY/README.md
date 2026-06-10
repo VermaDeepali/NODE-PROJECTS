@@ -1,29 +1,17 @@
-payment-gateway/
-│
-├── src/
-│   ├── config/
-│   │   └── razorpay.js
-│   │
-│   ├── controllers/
-│   │   └── payment.controller.js
-│   │
-│   ├── routes/
-│   │   └── payment.routes.js
-│   │
-│   ├── services/
-│   │   └── payment.service.js
-│   │
-│   ├── middleware/
-│   │
-│   ├── models/
-│   │   └── transaction.model.js
-│   │
-│   ├── utils/
-│   │   └── verifySignature.js
-│   │
-│   ├── app.js
-│   └── server.js
-│
-├── .env
+payment-gateway structure
+
+.
+├── package-lock.json
 ├── package.json
-└── README.md
+├── README.md
+└── src
+    ├── app.js
+    ├── config
+    │   └── razorpay.js
+    ├── controllers
+    │   └── payment.controller.js
+    ├── routes
+    │   └── payment.routes.js
+    ├── server.js
+    └── services
+        └── payment.service.js
