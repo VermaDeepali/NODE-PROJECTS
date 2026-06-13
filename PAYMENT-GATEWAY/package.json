@@ -20,6 +20,8 @@
     "razorpay": "^2.9.6"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "install": "^0.13.0",
+    "nodemon": "^3.1.14",
+    "npm": "^11.17.0"
   }
 }

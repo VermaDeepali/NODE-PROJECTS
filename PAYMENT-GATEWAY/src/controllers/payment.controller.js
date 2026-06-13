@@ -1,4 +1,7 @@
 import crypto from 'crypto';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 import { createRazorpayOrder }
 from '../services/payment.service.js';
@@ -9,6 +12,8 @@ export const createOrder = async (req, res) => {
 
     const order =
       await createRazorpayOrder(amount);
+
+    console.log("order", order)
 
     res.status(200).json({
       success: true,
@@ -32,6 +37,10 @@ export const verifyPayment = async (req, res) => {
       razorpay_signature
     } = req.body;
 
+    console.log("body>>>>>", razorpay_order_id,
+      razorpay_payment_id,
+      razorpay_signature)
+
     const generatedSignature = crypto
       .createHmac(
         'sha256',
@@ -43,10 +52,14 @@ export const verifyPayment = async (req, res) => {
         razorpay_payment_id
       )
       .digest('hex');
+    
+    console.log("generatedSignature", generatedSignature)
 
     const isAuthentic =
       generatedSignature ===
       razorpay_signature;
+
+      console.log("isAuthentic", isAuthentic)
 
     if (!isAuthentic) {
       return res.status(400).json({
