@@ -27,6 +27,12 @@ npm start
 
 The dashboard window opens automatically on launch. Closing it leaves the app running in the tray (macOS); click the tray icon any time to reopen it.
 
+## Screenshots
+
+| Dashboard | Reminder Popup |
+| --- | --- |
+| ![Dashboard](assets/screenshots/dashboard.png) | ![Reminder Popup](assets/screenshots/reminder-popup.png) |
+
 ## Usage
 
 - **Tray icon** — shows live progress and provides quick actions: open settings, test the reminder animation, reset today's count, mute sound, or quit
